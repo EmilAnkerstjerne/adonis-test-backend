@@ -1,1 +1,1 @@
-release: node ace migration:run
+release: node build/ace migration:run --force
