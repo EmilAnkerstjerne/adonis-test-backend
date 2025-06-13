@@ -2,7 +2,7 @@ import User from '#models/user'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class SessionController {
-  async store({ request, response, auth }: HttpContext) {
+  async store({ request, auth }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
     const user = await User.verifyCredentials(email, password)
     await auth.use('web').login(user)
@@ -10,7 +10,7 @@ export default class SessionController {
     // response.redirect('/dashboard')
     return 'ok'
   }
-  async logout({ response, auth }: HttpContext) {
+  async logout({ auth }: HttpContext) {
     await auth.use('web').logout()
 
     // response.redirect('/login')
