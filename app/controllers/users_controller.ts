@@ -9,8 +9,9 @@ export default class UsersController {
     return users
   }
 
-  async store({ request }: HttpContext) {
+  async store({ request, response }: HttpContext) {
     const creds = request.only(['email', 'password'])
+    if (!creds.email || !creds.password) return response.abort({})
     const user = await User.create(creds)
     return user
   }
@@ -40,5 +41,11 @@ export default class UsersController {
     const updatedUser = await User.updateOrCreate({ id: params['id'] }, fullName)
 
     return updatedUser
+  }
+
+  async whoAmI({ auth }: HttpContext) {
+    const id = auth.user?.id
+    const user = await User.find(id)
+    return user
   }
 }

@@ -16,8 +16,9 @@ router.group(() => {
   router.get('users', [UsersController, 'index'])
   router.get('users/:id', [UsersController, 'show'])
   router.patch('users/:id', [UsersController, 'update'])
+  router.get('whoami', [UsersController, 'whoAmI'])
   router.post('logout', [SessionController, 'logout'])
 }).use(middleware.auth())
 
 router.post('login', [SessionController, 'store'])
-router.post('users', [UsersController, 'store'])
+router.post('signup', [UsersController, 'store'])
