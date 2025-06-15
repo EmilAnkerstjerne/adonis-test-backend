@@ -1,5 +1,5 @@
 import env from '#start/env'
-// import app from '@adonisjs/core/services/app'
+import app from '@adonisjs/core/services/app'
 import { defineConfig, stores } from '@adonisjs/session'
 
 const sessionConfig = defineConfig({
@@ -23,14 +23,10 @@ const sessionConfig = defineConfig({
    * cookie store
    */
   cookie: {
-    // path: '/',
-    // httpOnly: true,
-    // secure: app.inProduction,
-    // sameSite: 'lax',
     path: '/',
-    httpOnly: true,        // or false if you need JS access (less secure)
-    secure: false,         // ✅ must be false since you're on HTTP
-    sameSite: 'lax',  
+    httpOnly: true,
+    secure: app.inProduction,
+    sameSite: 'lax',
   },
 
   /**
