@@ -23,13 +23,14 @@ const sessionConfig = defineConfig({
    * cookie store
    */
   cookie: {
-    path: '/',
+    // path: '/',
     // httpOnly: true,
-    httpOnly: false,
     // secure: app.inProduction,
-    secure: false,
     // sameSite: 'lax',
-    sameSite: 'none',
+    path: '/',
+    httpOnly: true,        // or false if you need JS access (less secure)
+    secure: false,         // ✅ must be false since you're on HTTP
+    sameSite: 'lax',  
   },
 
   /**
