@@ -24,10 +24,12 @@ const sessionConfig = defineConfig({
    */
   cookie: {
     path: '/',
-    httpOnly: true,
+    // httpOnly: true,
+    httpOnly: false,
     // secure: app.inProduction,
     secure: false,
-    sameSite: 'lax',
+    // sameSite: 'lax',
+    sameSite: 'none',
   },
 
   /**
