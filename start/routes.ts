@@ -13,8 +13,8 @@ import { middleware } from './kernel.js'
 import SessionController from '#controllers/session_controller'
 import PostsController from '#controllers/posts_controller'
 
+router.get('users', [UsersController, 'index'])
 router.group(() => {
-  router.get('users', [UsersController, 'index'])
   router.get('users/:id', [UsersController, 'show'])
   router.patch('users/:id', [UsersController, 'update'])
   router.get('whoami', [UsersController, 'whoAmI'])
