@@ -1,7 +1,7 @@
 import Post from '#models/post'
 import type { HttpContext } from '@adonisjs/core/http'
 
-type IndexMethod = Exclude<Awaited<ReturnType<InstanceType<typeof PostsController>['index']>>, void>
+// type IndexMethod = Exclude<Awaited<ReturnType<InstanceType<typeof PostsController>['index']>>, void>
 
 
 
