@@ -27,7 +27,6 @@ const sessionConfig = defineConfig({
     httpOnly: true,
     secure: app.inProduction,
     sameSite: 'lax',
-    // sameSite: 'none',
   },
 
   /**
