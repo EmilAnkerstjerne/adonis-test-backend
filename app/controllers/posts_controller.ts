@@ -11,8 +11,8 @@ export default class PostsController {
     if (!userId) return response.unauthorized()
     const page = request.input('page', 1)
     const limit = 10
-    const posts = await Post.query().preload('user', (query) => query.select(['fullName'])).paginate(page, limit)
-
+    const posts = await Post.query().preload('user', (query) => query.select(['fullName'])).orderBy('createdAt', 'desc').paginate(page, limit)
+    // await new Promise((res) => setTimeout(res, 5000))
     return posts
   }
 
